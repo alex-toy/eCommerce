@@ -5,7 +5,7 @@ import products from './data/products.js'
 import colors from 'colors'
 // import morgan from 'morgan'
 // import { notFound, errorHandler } from './middleware/errorMiddleware.js'
-// import connectDB from './config/db.js'
+import connectDB from './config/db.js'
 
 // import productRoutes from './routes/productRoutes.js'
 // import userRoutes from './routes/userRoutes.js'
@@ -14,7 +14,7 @@ import colors from 'colors'
 
 dotenv.config()
 
-// connectDB()
+connectDB()
 
 const app = express()
 
@@ -26,8 +26,7 @@ const app = express()
 
 //const products = require('./data/products')
 
-//const express = require('express')
-//const dotenv = require('dotenv')
+
 
 
 
