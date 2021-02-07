@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
@@ -12,7 +12,8 @@ import Meta from '../components/Meta'
 // } from '../actions/productActions'
 // import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
-import products from '../products_and_images/products'
+//import products from '../products_and_images/products'
+import axios from 'axios'
 
 const ProductScreen = ({ history, match }) => {
   // const [qty, setQty] = useState(1)
@@ -59,9 +60,21 @@ const ProductScreen = ({ history, match }) => {
   //   )
   // }
 
+  const [product, setProduct] = useState({})
+
+  useEffect(() => {
+    const fetchProduct = async() => {
+      const { data } = await axios.get(`/api/product/${match.params.id}`)
+      setProduct(data)
+    }
+    fetchProduct()
+  }, [])
+
+
   return (
     <>
-      <h1>Product screen</h1>
+      <h1>{product.name}</h1>
+      <p>{product._id}</p>
       <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>

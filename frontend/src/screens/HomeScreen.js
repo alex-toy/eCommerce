@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+//import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 // import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
@@ -10,7 +11,8 @@ import Product from '../components/Product'
 // import Meta from '../components/Meta'
 // import { listProducts } from '../actions/productActions'
 
-import products from '../products_and_images/products'
+// import products from '../products_and_images/products'
+import axios from 'axios'
 
 const HomeScreen = ({ match }) => {
   // const keyword = match.params.keyword
@@ -25,6 +27,16 @@ const HomeScreen = ({ match }) => {
   // useEffect(() => {
   //   dispatch(listProducts(keyword, pageNumber))
   // }, [dispatch, keyword, pageNumber])
+
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const fetchProducts = async() => {
+      const { data } = await axios.get('/api/products')
+      setProducts(data)
+    }
+    fetchProducts()
+  }, [])
 
   return (
     <>
