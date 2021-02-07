@@ -68,7 +68,7 @@ const ProductScreen = ({ history, match }) => {
       setProduct(data)
     }
     fetchProduct()
-  }, [])
+  }, [match])
 
 
   return (

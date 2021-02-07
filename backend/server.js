@@ -1,7 +1,8 @@
+import express from 'express'
+import dotenv from 'dotenv'
+import products from './data/products.js'
 // import path from 'path'
-// import express from 'express'
-// import dotenv from 'dotenv'
-// import colors from 'colors'
+import colors from 'colors'
 // import morgan from 'morgan'
 // import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 // import connectDB from './config/db.js'
@@ -11,11 +12,11 @@
 // import orderRoutes from './routes/orderRoutes.js'
 // import uploadRoutes from './routes/uploadRoutes.js'
 
-// dotenv.config()
+dotenv.config()
 
 // connectDB()
 
-// const app = express()
+const app = express()
 
 // if (process.env.NODE_ENV === 'development') {
 //   app.use(morgan('dev'))
@@ -23,14 +24,15 @@
 
 // app.use(express.json())
 
-const products = require('./data/products')
+//const products = require('./data/products')
 
-const express = require('express')
-const app = express()
+//const express = require('express')
+//const dotenv = require('dotenv')
+
 
 
 app.get('/', (req, res) => {
-  res.send('API is running....')
+  res.send('API is running test....')
 })
 
 app.get('/api/products', (req, res) => {
@@ -41,8 +43,6 @@ app.get('/api/product/:id', (req, res) => {
   const product = products.find((p) => p._id === req.params.id)
   res.json(product)
 })
-
-app.listen(5000, console.log('server listening on port 5000'))
 
 
 // app.use('/api/products', productRoutes)
@@ -72,11 +72,12 @@ app.listen(5000, console.log('server listening on port 5000'))
 // app.use(notFound)
 // app.use(errorHandler)
 
-// const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000
 
-// app.listen(
-//   PORT,
-//   console.log(
-//     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-//   )
-// )
+app.listen(
+  PORT,
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+    //`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+  )
+)
