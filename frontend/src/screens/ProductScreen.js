@@ -5,12 +5,14 @@ import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 // import Message from '../components/Message'
 // import Loader from '../components/Loader'
-// import Meta from '../components/Meta'
+import Meta from '../components/Meta'
 // import {
 //   listProductDetails,
 //   createProductReview,
 // } from '../actions/productActions'
 // import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
+
+import products from '../products_and_images/products'
 
 const ProductScreen = ({ history, match }) => {
   // const [qty, setQty] = useState(1)
@@ -60,6 +62,10 @@ const ProductScreen = ({ history, match }) => {
   return (
     <>
       <h1>Product screen</h1>
+      <Link className='btn btn-light my-3' to='/'>
+        Go Back
+      </Link>
+      
     </>
   )
 }
