@@ -3,7 +3,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
-// import HomeScreen from './screens/HomeScreen'
+import HomeScreen from './screens/HomeScreen'
 // import ProductScreen from './screens/ProductScreen'
 // import CartScreen from './screens/CartScreen'
 // import LoginScreen from './screens/LoginScreen'
@@ -63,6 +63,7 @@ const App = () => {
     <div>
       <Header />
       <h1>Mon site de eCommerce</h1>
+      <HomeScreen />
       <Footer />
     </div>
     
