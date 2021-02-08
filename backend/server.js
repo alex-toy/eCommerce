@@ -7,7 +7,7 @@ import colors from 'colors'
 // import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 
-// import productRoutes from './routes/productRoutes.js'
+import productRoutes from './routes/productRoutes.js'
 // import userRoutes from './routes/userRoutes.js'
 // import orderRoutes from './routes/orderRoutes.js'
 // import uploadRoutes from './routes/uploadRoutes.js'
@@ -44,7 +44,7 @@ app.get('/api/product/:id', (req, res) => {
 })
 
 
-// app.use('/api/products', productRoutes)
+app.use('/api/products', productRoutes)
 // app.use('/api/users', userRoutes)
 // app.use('/api/orders', orderRoutes)
 // app.use('/api/upload', uploadRoutes)
@@ -77,6 +77,5 @@ app.listen(
   PORT,
   console.log(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-    //`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
   )
 )
