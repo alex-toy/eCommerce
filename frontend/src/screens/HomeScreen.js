@@ -1,52 +1,32 @@
 import React, { useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-// import Paginate from '../components/Paginate'
-// import ProductCarousel from '../components/ProductCarousel'
-// import Meta from '../components/Meta'
+import Paginate from '../components/Paginate'
+import ProductCarousel from '../components/ProductCarousel'
+import Meta from '../components/Meta'
 import { listProducts } from '../actions/productActions'
 
-// import products from '../products_and_images/products'
-//import axios from 'axios'
-
 const HomeScreen = ({ match }) => {
-  // const keyword = match.params.keyword
+  const keyword = match.params.keyword
 
-  // const pageNumber = match.params.pageNumber || 1
+  const pageNumber = match.params.pageNumber || 1
 
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => state.productList)
-  const { loading, error, products } = productList
+  const { loading, error, products, page, pages } = productList
 
   useEffect(() => {
-    dispatch(listProducts())
-  }, [dispatch])
-
+    dispatch(listProducts(keyword, pageNumber))
+  }, [dispatch, keyword, pageNumber])
 
   return (
     <>
-      <h1>Latest Products</h1>
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Message variant='danger'>{error}</Message>
-      ) : (
-        <Row>
-          {products.map(product => (
-            <Col>
-              <Product product={product} />
-            </Col>
-          ))}
-        </Row>
-      )}
-      
-
-      {/* <Meta />
+      <Meta />
       {!keyword ? (
         <ProductCarousel />
       ) : (
@@ -73,8 +53,8 @@ const HomeScreen = ({ match }) => {
             page={page}
             keyword={keyword ? keyword : ''}
           />
-        </> 
-      )}*/}
+        </>
+      )}
     </>
   )
 }
